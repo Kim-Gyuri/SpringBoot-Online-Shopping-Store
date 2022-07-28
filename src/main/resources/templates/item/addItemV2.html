@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Homepage - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/shop/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="/home">aladin </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/category/BOOK">책</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/category/MUSIC">음반</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="/shop/assets/ff.PNG" />
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">개인 정보</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">등록한 상품</a></li>
+                        <li><a class="dropdown-item" href="/item/new">상품 등록하기</a></li>
+                        <li><a class="dropdown-item" th:href="@{/cartList}">장바구니</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- book section -->
+<section class="py-5">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                상품 등록 양식
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form_container">
+                    <form role="form" method="post" enctype="multipart/form-data" th:object="${itemFormDto}">
+
+                        <div>
+                            <select th:field="*{status}" class="form-control nice-select wide">
+                                <option value="SELL">판매중</option>
+                                <option value="SOLD_OUT">품절</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <input type="text" th:field="*{itemName}" class="form-control" placeholder="상품명을 입력해주세요">
+                        </div>
+                        <p th:if="${#fields.hasErrors('itemName')}" th:errors="*{itemName}" class="fieldError">Incorrect data</p>
+
+                        <div>
+                            <input type="number" th:field="*{price}" class="form-control" placeholder="상품의 가격을 입력해주세요">
+                        </div>
+                        <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="fieldError">Incorrect data</p>
+
+                        <div>
+                            <input type="number" th:field="*{quantity}" class="form-control" placeholder="상품의 재고를 입력해주세요">
+                        </div>
+                        <p th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}" class="fieldError">Incorrect data</p>
+
+                        <div>
+                            <select type="text" th:field="*{itemType}" name="itemType" class="form-control nice-select wide">
+                                <option value="">==상품 등급 선택==</option>
+                                <option th:each="itemType : ${itemTypes}" th:value="${itemType.code}"
+                                        th:text="${itemType.typeStatus}"> HIGHEST</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select type="text" th:field="*{categoryType}" name="categoryType" class="form-control nice-select wide">
+                                <option value="">==카테고리 선택==</option>
+                                <option th:each="itemCategory : ${itemCategories}" th:value="${itemCategory.code}"
+                                        th:text="${itemCategory.categoryName}"> BOOK</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <input class="form-control" id="formFile" type="file" multiple="multiple" name="itemImgFile">
+                        </div>
+
+                        <div class="btn_box">
+                            <button  class="btn btn-outline-dark" type="submit"  th:text="#{button.save}"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- -->
+            <div class="col-md-6">
+                <div class="map_container ">
+                    <div> 품질 판정 가이드</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end book section -->
+
+
+
+
+
+
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="/shop/js/scripts.js"></script>
+</body>
+</html>

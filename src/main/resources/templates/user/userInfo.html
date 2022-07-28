@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Homepage - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/shop/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="/home">aladin </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/category/BOOK">책</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/category/MUSIC">음반</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="/shop/assets/ff.PNG" />
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/user/Info">개인 정보</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="/user/product">등록한 상품</a></li>
+                        <li><a class="dropdown-item" href="/item/new">상품 등록하기</a></li>
+                        <li><a class="dropdown-item" href="/loginInfo">장바구니</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+
+            <form>
+                <div>
+                    <input class="form-control" th:value="${member.loginId}" readonly>
+                </div>
+
+                <div>
+                    <input class="form-control" th:value="${member.password}" readonly>
+                </div>
+
+                <div>
+                    <input class="form-control" th:value="${member.name}" readonly>
+                </div>
+
+                <div>
+                    <input class="form-control"  th:value="${member.email}" readonly>
+                </div>
+
+                <div>
+                    <input class="form-control" th:value="${member.address.city}" readonly>
+                </div>
+                <div>
+                    <input class="form-control" th:value="${member.address.street}" readonly>
+                </div>
+                <div>
+                    <input class="form-control" th:value="${member.address.zipcode}" readonly>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="/shop/js/scripts.js"></script>
+</body>
+</html>
