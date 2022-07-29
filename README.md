@@ -26,3 +26,8 @@
 `Frontend`
 + Bootstrap template
 + Thymeleaf
+<br>
+
+## Database Schema
+![테이블1](https://user-images.githubusercontent.com/57389368/181723861-4e5453d3-3d54-4e6e-a287-702455045814.png)
+
