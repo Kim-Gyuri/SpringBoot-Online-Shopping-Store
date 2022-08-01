@@ -29,5 +29,4 @@
 <br>
 
 ## Database Schema
-![테이블1](https://user-images.githubusercontent.com/57389368/181740259-c538cd4e-2044-493d-9d03-eded82aaf6e1.png)
-
+![테이블2](https://user-images.githubusercontent.com/57389368/182130284-4222a640-1ec2-413b-8b6a-4d9cbf8ee594.png)
