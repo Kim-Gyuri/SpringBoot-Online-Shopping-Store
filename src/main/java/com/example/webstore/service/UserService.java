@@ -37,6 +37,7 @@ public class UserService {
                     .orElse(null);
     }
 
+    @Transactional(readOnly = true)
     public User findOne(String loginId) {
         Optional<User> byLoginId = userRepository.findByLoginId(loginId);
         return byLoginId.orElseThrow(() -> new IllegalArgumentException("Invalid board id= " + loginId));

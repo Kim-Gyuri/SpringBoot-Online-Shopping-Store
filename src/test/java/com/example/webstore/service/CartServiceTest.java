@@ -1,41 +1,79 @@
 package com.example.webstore.service;
 
-import com.example.webstore.domain.*;
+import com.example.webstore.domain.Item;
+import com.example.webstore.domain.ItemSellStatus;
+import com.example.webstore.domain.User;
+import com.example.webstore.dto.CartInfoDto;
+import com.example.webstore.dto.ItemFormDto;
+import com.example.webstore.dto.UserFormDto;
+import com.example.webstore.repository.ItemRepository;
+import com.example.webstore.repository.UserRepository;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
+@Transactional
 class CartServiceTest {
 
-    @Test
-    @Transactional
-    void 장바구니_생성() {
+    @Autowired CartService cartService;
+    @Autowired ItemRepository itemRepository;
+    @Autowired UserRepository userRepository;
 
-        Address addressA = new Address("진주", "2", "2222");
-        Address addressB = new Address("서울", "1", "1111");
+    public User createCustomerTest() {
+        UserFormDto dto = new UserFormDto();
+        dto.setLoginId("wolf27");
+        dto.setPassword("1234@");
+        dto.setName("wolf");
+        dto.setEmail("wolf1004@naver.com");
+        dto.setCity("서울");
+        dto.setStreet("마포구 합정동");
+        dto.setZipcode("4015");
 
-        User userA = new User( "test","test!","userA", "mimi03@naver.com", addressA);
-        User userB = new User("test2", "test2!","userB", "nana05@gmail.com", addressB);
+        return userRepository.save(dto.UserEntity());
+    }
 
+    public Item createItemTest() throws Exception {
 
+        ItemFormDto dto = new ItemFormDto();
+        dto.setItemName("테스트 상품명");
+        dto.setCategoryType("BOOK");
+        dto.setItemType("최상");
+        dto.setPrice(10000);
+        dto.setQuantity(100);
+        dto.setStatus(ItemSellStatus.SELL);
 
-        Item item1 = new Item("spring5", 10000, 10, "최상", "BOOK", ItemSellStatus.SELL);
-        Item item2 = new Item("mvc2", 10000, 10, "최상", "BOOK", ItemSellStatus.SELL);
-        ItemImg img1 = new ItemImg("origin.jpg", "store.jpg", "c:save/store.jpg", "Y",item1);
-        ItemImg img2 = new ItemImg("origin.jpg", "store.jpg", "c:save/store.jpg", "Y",item2);
-
-
-
-        OrderItem orderItem1 = new OrderItem(item1, 5);
-        OrderItem orderItem2 = new OrderItem(item2, 2);
-
-        Cart cart = Cart.createCartV2(userA, orderItem1, orderItem2);
-
-        for (OrderItem orderItem : cart.getOrderItems()) {
-            System.out.println("orderItem = " + orderItem.getItem().getItemName());
-        }
+        return itemRepository.save(dto.toEntity());
 
     }
+
+
+    @Test
+    @DisplayName("장바구니 담기 테스트")
+    void addCart() throws Exception {
+
+        User customer = createCustomerTest();
+        Item item = createItemTest();
+        int orderCount = 10;
+
+        cartService.mergeCart(customer, item.getId(), 10);
+
+        List<CartInfoDto> cartList = cartService.getCartList(customer);
+        for (CartInfoDto cartInfoDto : cartList) {
+            assertEquals(cartInfoDto.getItem(), item);
+            assertEquals(cartInfoDto.getCount(), orderCount);
+            assertEquals(90, item.getStockQuantity());
+        }
+
+
+    }
+
+
 
 }
