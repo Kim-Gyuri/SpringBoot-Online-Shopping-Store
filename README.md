@@ -30,3 +30,33 @@
 
 ## Database Schema
 ![테이블2](https://user-images.githubusercontent.com/57389368/182130284-4222a640-1ec2-413b-8b6a-4d9cbf8ee594.png)
+
+## gif
+`로그인` <br> <br>
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/57389368/194482789-5b5ab4ea-b5ed-40a5-b906-2b5f464a8be9.gif) <br>
+
+<br> <br> <br>
+
+`카테고리`  <br> <br>
+![카테고리](https://user-images.githubusercontent.com/57389368/194484581-cc800c02-9820-4ba0-9d79-b271c2dc806d.gif) <br>
+
+<br> <br> <br>
+
+`drop menu` <br><br>
+![드랍리스트](https://user-images.githubusercontent.com/57389368/194485864-05ee53bb-1efd-46d5-a2f0-3a91f564f7e9.gif) <br>
+
+<br> <br> <br>
+
+`구매` <br><br>
+![구매](https://user-images.githubusercontent.com/57389368/194486585-66f8f70e-2e09-436d-9265-4aedc1b1572c.gif) <br>
+
+<br> <br> <br>
+
+`상품 등록` <br><br>
+![상품등록](https://user-images.githubusercontent.com/57389368/194487633-b6759457-742e-4d44-8aef-1271c90e85c2.gif) <br>
+
+<br> <br> <br>
+
+`검색 / 이름순` <br><br>
+![검색하기](https://user-images.githubusercontent.com/57389368/194488938-6dbb2260-d765-420e-acad-5161024f7c21.gif) <br>
+
