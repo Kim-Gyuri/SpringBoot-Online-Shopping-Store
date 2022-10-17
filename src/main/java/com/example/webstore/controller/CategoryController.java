@@ -24,7 +24,7 @@ public class CategoryController {
     private final ItemService itemService;
 
     @GetMapping("/category/BOOK")
-    public String showBook(Model model, ItemSearchCondition condition, @PageableDefault(size = 5, sort = "createdDate",direction = Sort.Direction.DESC) Pageable pageable) {
+    public String showBook(Model model, ItemSearchCondition condition, @PageableDefault(size = 4, sort = "createdDate",direction = Sort.Direction.DESC) Pageable pageable) {
 
 
             Page<MainItemDto> results = itemService.categoryPageSort("BOOK", condition,pageable);
@@ -44,7 +44,7 @@ public class CategoryController {
     }
 
     @GetMapping("/category/MUSIC")
-    public String showMUSIC(Model model, ItemSearchCondition condition, @PageableDefault(size = 5, sort = "createdDate",direction = Sort.Direction.DESC) Pageable pageable) {
+    public String showMUSIC(Model model, ItemSearchCondition condition, @PageableDefault(size = 4, sort = "createdDate",direction = Sort.Direction.DESC) Pageable pageable) {
 
 
             Page<MainItemDto> results = itemService.categoryPageSort("MUSIC", condition, pageable);

@@ -33,6 +33,7 @@
                         <li><a class="dropdown-item" href="/user/product">등록한 상품</a></li>
                         <li><a class="dropdown-item" href="/item/new">상품 등록하기</a></li>
                         <li><a class="dropdown-item" href="/loginInfo">장바구니</a></li>
+                        <li><form th:action="@{/logout}" method="post"><button class="dropdown-item" type="submit">로그아웃</button></form></li>
                     </ul>
                 </li>
             </ul>
@@ -45,46 +46,47 @@
 <!-- book section -->
 <section class="py-5">
     <div class="container">
-        <div class="heading_container">
-            <h2>
-                상품 등록 양식
-            </h2>
-        </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="form_container">
                     <form role="form" method="post" enctype="multipart/form-data" th:object="${itemFormDto}">
 
-                        <div>
+                        <div class="form-group">
                             <select th:field="*{status}" class="form-control nice-select wide">
                                 <option value="SELL">판매중</option>
                                 <option value="SOLD_OUT">품절</option>
                             </select>
                         </div>
 
-                        <div>
+                        <div class="form-group">
+                            <label th:text="#{label.item.itemName}">상품명</label>
                             <input type="text" th:field="*{itemName}" class="form-control" placeholder="상품명을 입력해주세요">
                         </div>
                         <p th:if="${#fields.hasErrors('itemName')}" th:errors="*{itemName}" class="fieldError">Incorrect data</p>
 
-                        <div>
+                        <div class="form-group">
+                            <label th:text="#{label.item.price}">상품가격</label>
                             <input type="number" th:field="*{price}" class="form-control" placeholder="상품의 가격을 입력해주세요">
                         </div>
                         <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="fieldError">Incorrect data</p>
 
-                        <div>
+                        <div class="form-group">
+                            <label th:text="#{label.item.quantity}">상품재고량</label>
                             <input type="number" th:field="*{quantity}" class="form-control" placeholder="상품의 재고를 입력해주세요">
                         </div>
                         <p th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}" class="fieldError">Incorrect data</p>
 
-                        <div>
+                        <div class="form-group">
+                            <label th:text="#{label.item.grade}">상품 상태등급</label>
                             <select type="text" th:field="*{itemType}" name="itemType" class="form-control nice-select wide">
                                 <option value="">==상품 등급 선택==</option>
                                 <option th:each="itemType : ${itemTypes}" th:value="${itemType.code}"
                                         th:text="${itemType.typeStatus}"> HIGHEST</option>
                             </select>
                         </div>
-                        <div>
+
+                        <div class="form-group">
+                            <label th:text="#{label.item.field}">상품 카테고리</label>
                             <select type="text" th:field="*{categoryType}" name="categoryType" class="form-control nice-select wide">
                                 <option value="">==카테고리 선택==</option>
                                 <option th:each="itemCategory : ${itemCategories}" th:value="${itemCategory.code}"
@@ -92,11 +94,14 @@
                             </select>
                         </div>
 
-                        <div>
+                        <div class="form-group">
+                            <label th:text="#{label.item.image}">상품 사진</label>
                             <input class="form-control" id="formFile" type="file" multiple="multiple" name="itemImgFile">
                         </div>
 
-                        <div class="btn_box">
+                        <hr class="my-4">
+
+                        <div c lass="btn_box">
                             <button  class="btn btn-outline-dark" type="submit"  th:text="#{button.save}"></button>
                         </div>
                     </form>
@@ -106,6 +111,7 @@
             <div class="col-md-6">
                 <div class="map_container ">
                     <div> 품질 판정 가이드</div>
+                    <img   class="box1" src="/shop/assets/newGrade.png" alt=""/>
                 </div>
             </div>
         </div>

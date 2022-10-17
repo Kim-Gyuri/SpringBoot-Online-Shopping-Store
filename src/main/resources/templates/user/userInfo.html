@@ -33,6 +33,7 @@
                         <li><a class="dropdown-item" href="/user/product">등록한 상품</a></li>
                         <li><a class="dropdown-item" href="/item/new">상품 등록하기</a></li>
                         <li><a class="dropdown-item" href="/loginInfo">장바구니</a></li>
+                        <li><form th:action="@{/logout}" method="post"><button class="dropdown-item" type="submit">로그아웃</button></form></li>
                     </ul>
                 </li>
             </ul>
@@ -44,34 +45,41 @@
 
 <!-- Section-->
 <section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
-
+    <div class="row gx-0 gx-lg-0 row-cols-2 row-cols-md-3 row-cols-xl-0 justify-content-center">
+        <div class="form_container">
             <form>
-                <div>
+                <div class="form-group">
+                    <label th:text="#{page.member.memberId}">회원ID</label>
                     <input class="form-control" th:value="${member.loginId}" readonly>
                 </div>
 
-                <div>
+                <div class="form-group">
+                    <label th:text="#{page.member.password}">비밀번호</label>
                     <input class="form-control" th:value="${member.password}" readonly>
                 </div>
 
-                <div>
+                <div class="form-group">
+                    <label th:text="#{page.member.name}">회원명</label>
                     <input class="form-control" th:value="${member.name}" readonly>
                 </div>
 
-                <div>
+                <div class="form-group">
+                    <label th:text="#{page.member.email}">이메일주소</label>
                     <input class="form-control"  th:value="${member.email}" readonly>
                 </div>
 
-                <div>
+                <div class="form-group">
+                    <label th:text="#{page.member.city}">주소 도시</label>
                     <input class="form-control" th:value="${member.address.city}" readonly>
                 </div>
-                <div>
+
+                <div class="form-group">
+                    <label th:text="#{page.member.street}">주소 도로명</label>
                     <input class="form-control" th:value="${member.address.street}" readonly>
                 </div>
-                <div>
+
+                <div class="form-group">
+                    <label th:text="#{page.member.zipcode}">주소 우편주소</label>
                     <input class="form-control" th:value="${member.address.zipcode}" readonly>
                 </div>
 

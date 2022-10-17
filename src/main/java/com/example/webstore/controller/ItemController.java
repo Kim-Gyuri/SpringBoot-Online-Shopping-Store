@@ -105,7 +105,7 @@ public class ItemController {
     }
 
     @GetMapping("/home")
-    public String homeV2(Model model, ItemSearchCondition condition, @PageableDefault(size = 5, sort = "createdDate",direction = Sort.Direction.DESC) Pageable pageable)  {
+    public String homeV2(Model model, ItemSearchCondition condition, @PageableDefault(size = 4, sort = "createdDate",direction = Sort.Direction.DESC) Pageable pageable)  {
 
         List<ItemCategory> categoryList = categoryService.findAll();
         model.addAttribute("categoryList",categoryList);

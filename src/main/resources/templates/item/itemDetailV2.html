@@ -33,6 +33,7 @@
                         <li><a class="dropdown-item" href="/user/product">등록한 상품</a></li>
                         <li><a class="dropdown-item" href="/item/new">상품 등록하기</a></li>
                         <li><a class="dropdown-item" href="/loginInfo">장바구니</a></li>
+                        <li><form th:action="@{/logout}" method="post"><button class="dropdown-item" type="submit">로그아웃</button></form></li>
                     </ul>
                 </li>
             </ul>
@@ -42,71 +43,74 @@
 </nav>
 
 
-<!-- book section -->
-<div class="book_section layout_padding">
-    <div class="container">
-        <div class="heading_container">
-            <h2>
-                상품 등록 완료!
-            </h2>
+<!-- massage section -->
+<section class="py-5">
+        <div class="row gx-0 gx-lg-0 row-cols-2 row-cols-md-3 row-cols-xl-0 justify-content-center">
+            <h2 class="center-texts">상품 등록 완료!</h2>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form_container">
-                    <form>
-                        <div>
-                            <input class="form-control" th:value="${item.itemName}" readonly>
-                        </div>
-
-                        <div>
-                            <input class="form-control" th:value="${item.price}" readonly>
-                        </div>
-
-                        <div>
-                            <input class="form-control" th:value="${item.quantity}" readonly>
-                        </div>
-
-                        <div>
-                            <input class="form-control"  th:value="${item.itemType}" readonly>
-                        </div>
-
-                        <div>
-                            <input class="form-control" th:value="${item.categoryType}" readonly>
-                        </div>
-
-                        <section class="offer_section">
-                            <div class="row">
-                                <div class="row" th:each="itemImg : ${item.itemImgDtoList}">
-                                    <img class="box1" th:if="${not #strings.isEmpty(itemImg.savePath)}" th:src="|/images/${itemImg.imgName}|"/>
-                                </div>
-                            </div>
-                        </section>
-
-                        <div class="row gy-2 mb-4">
-                            <div class="row">
-                                <div class="btn_box">
-                                    <button class="btn btn-outline-dark" type="button" th:onclick="|location.href='@{/item/{itemId}/edit(itemId=${item.id})}'|" th:text="#{page.updateItem}"></button>
-                                </div>
-
-                                <div class="btn_box">
-                                    <button class="btn btn-outline-dark" type="button" th:text="#{page.items}" th:onclick="|location.href='@{/home}'|"></button>
-                                </div>
-                            </div>
-                        </div>
+</section>
 
 
-
-
-                    </form>
+<!-- item info -->
+<section class="py-5">
+    <div class="row gx-0 gx-lg-0 row-cols-2 row-cols-md-3 row-cols-xl-0 justify-content-center">
+        <div class="form_container">
+            <form>
+                <div>
+                    <input class="form-control" th:value="${item.itemName}" readonly>
                 </div>
-            </div>
-            <!-- -->
+
+                <div>
+                    <input class="form-control" th:value="${item.price}" readonly>
+                </div>
+
+                <div>
+                    <input class="form-control" th:value="${item.quantity}" readonly>
+                </div>
+
+                <div>
+                    <input class="form-control"  th:value="${item.itemType}" readonly>
+                </div>
+
+                <div>
+                    <input class="form-control" th:value="${item.categoryType}" readonly>
+                </div>
+
+                <br><br>
+
+                <div class="container justify-content-center">
+                    <h2 class="">등록한 사진</h2>
+
+                    <div th:each="itemImg : ${item.itemImgDtoList}">
+                        <img class="card-img-fake2" th:if="${not #strings.isEmpty(itemImg.savePath)}" th:src="|/images/${itemImg.imgName}|"/> <br><br>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+<!-- btn section -->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <form>
+                <div class="row gy-2 mb-4">
+
+                        <div class="col">
+                            <button  class="btn btn-outline-dark" type="button" th:text="#{page.items}" th:onclick="|location.href='@{/home}'|"></button>
+                        </div>
+
+                </div>
+            </form>
         </div>
     </div>
-</div>
 </section>
-<!-- end book section -->
-
 
 
 

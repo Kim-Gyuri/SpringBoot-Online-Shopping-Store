@@ -76,14 +76,24 @@
   }
 }
 
-.box1 {
+.center-texts {
+ text-align: center !important;
+}
 
+.box1 {
  display: inline-block;
-  width: 250px;
-  height: 250px;
-   padding:10px 15px;
-   line-height:25px;
-   margin:2px;
+ weight: 440px;
+}
+
+.Tab {
+ display: inline-block;
+ height: 20px;
+}
+
+.cardBox {
+      width: 190px;
+      height: 505px;
+      margin-bottom: 3rem !important;
 }
 
 body {
@@ -605,7 +615,7 @@ progress {
   color: #6c757d;
 }
 .blockquote-footer::before {
-  content: "— ";
+  content: "— ";
 }
 
 .img-fluid {
@@ -696,6 +706,7 @@ progress {
 .col {
   flex: 1 0 0%;
 }
+
 
 .row-cols-auto > * {
   flex: 0 0 auto;
@@ -1185,8 +1196,8 @@ progress {
   }
 
   .col-md-6 {
-    flex: 0 0 auto;
-    width: 50%;
+  width: 100%;
+
   }
 
   .col-md-7 {
@@ -2197,7 +2208,7 @@ progress {
 
 .form-control {
   display: block;
-  width: 100%;
+  width: 495px !important;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;
@@ -4517,7 +4528,7 @@ textarea.form-control-lg {
   color: #fff;
 }
 
-.card {
+{
   position: relative;
   display: flex;
   flex-direction: column;
@@ -4583,6 +4594,10 @@ textarea.form-control-lg {
   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
 }
 
+.card-fake {
+  padding: 0.5rem 1rem;
+}
+
 .card-footer {
   padding: 0.5rem 1rem;
   background-color: rgba(0, 0, 0, 0.03);
@@ -4618,6 +4633,24 @@ textarea.form-control-lg {
 .card-img-top,
 .card-img-bottom {
   width: 100%;
+}
+
+
+.card-img,
+.card-img-fake {
+
+  height: 240px !important;
+  weight: 240px !important;
+   border-top-left-radius: calc(0.25rem - 1px);
+}
+
+.card-img,
+.card-img-fake2 {
+  display:flex !important;
+  align-items:center !important; /* 방향이 row 기준: 세로 중앙 정렬*/
+  height: 450px !important;
+  weight: 496px !important;
+   border-top-left-radius: calc(0.25rem - 1px);
 }
 
 .card-img,
@@ -6996,7 +7029,12 @@ textarea.form-control-lg {
 }
 
 .h-100 {
-  height: 100% !important;
+  height: 330px !important;
+}
+
+
+.h-fake {
+    height: 540px !important;
 }
 
 .h-auto {
@@ -7386,7 +7424,11 @@ textarea.form-control-lg {
 }
 
 .mb-5 {
-  margin-bottom: 3rem !important;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .mb-auto {
@@ -7501,9 +7543,17 @@ textarea.form-control-lg {
 }
 
 .py-5 {
-  padding-top: 3rem !important;
-  padding-bottom: 3rem !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
 }
+
+.py-fake {
+   position: fixed !important; /* 이 부분을 고정 */
+   bottom: 0 !important;  /* 하단에 여백 없이 */
+   width: 100% !important;  /* 가로 사이즈를 브라우저에 가득 채움 */
+}
+
+
 
 .pt-0 {
   padding-top: 0 !important;

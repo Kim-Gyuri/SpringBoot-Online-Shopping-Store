@@ -16,6 +16,9 @@ public class PageDto {
 
     private long total;
 
+    public PageDto() {
+    }
+
     public PageDto(long total, Pageable pageable) {
         this.total = total;
         this.curPage = pageable.getPageNumber();

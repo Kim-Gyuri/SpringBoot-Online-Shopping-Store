@@ -23,17 +23,9 @@
     </div>
 </nav>
 
-
-<!-- book section -->
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <div class="card-body">
-                <div class="row gx-5 bg-white">
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form_container">
 
 
                                 <form action="item.html" th:action th:object="${loginForm}" method="post">
@@ -47,48 +39,34 @@
                                                th:errorclass="field-error">
                                         <div class="field-error" th:errors="*{loginId}" />
                                     </div>
+
                                     <div>
+                                        <br>
                                         <label for="password">비밀번호</label>
                                         <input type="password" id="password" th:field="*{password}" class="form-control"
                                                th:errorclass="field-error">
                                         <div class="field-error" th:errors="*{password}" />
                                     </div>
 
-                                    <br><br>
+                                    <hr class="my-4">
 
 
-                                    <div class="row gy-2 mb-4">
-                                        <div class="row">
-                                            <div class="btn_box">
-                                                <button  class="btn btn-outline-dark" type="submit" > 로그인 </button>
-                                            </div>
-
-                                            <div class="btn_box">
-                                                <a href="/register">회원가입</a>
-                                            </div>
-                                        </div>
+                                    <div>
+                                        <button class="btn btn-outline-dark" type="submit">로그인</button>
                                     </div>
 
+                                    <div>
+                                        <a href="/register">회원가입 하러가기</a>
+                                    </div>
 
                                 </form>
-                            </div>
-                        </div>
-                        <!-- -->
-                    </div>
-
-
-                </div>
-                </div>
-            </div>
+                <br><br><br>
         </div>
+    </div>
 </section>
 <!-- end book section -->
 
-
-
-
-
-
+<div class="container px-4 px-lg-5 mt-5"></div>
 <!-- Footer-->
 <footer class="py-5 bg-dark">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>

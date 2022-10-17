@@ -33,6 +33,7 @@
                         <li><a class="dropdown-item" href="/user/product">등록한 상품</a></li>
                         <li><a class="dropdown-item" href="/item/new">상품 등록하기</a></li>
                         <li><a class="dropdown-item" href="/loginInfo">장바구니</a></li>
+                        <li><form th:action="@{/logout}" method="post"><button class="dropdown-item" type="submit">로그아웃</button></form></li>
                     </ul>
                 </li>
             </ul>
@@ -67,7 +68,7 @@
                             <tbody>
 
                             <tr th:each="item : ${products}">
-                                <td class="align-middle"><img class="card-img-top" th:src="|/images/${item.imgName}|"></td>
+                                <td class="align-middle"><img class="card-img-fake" th:src="|/images/${item.imgName}|"></td>
                                 <td class="align-middle" th:text="${item.itemName}"></td>
                                 <td class="align-middle" th:text="${item.price}"></td>
                                 <td class="align-middle" th:text="${item.quantity}"></td>
@@ -87,12 +88,6 @@
 
 
 
-
-
-<!-- Footer-->
-<footer class="py-5 bg-dark">
-    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
-</footer>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->

@@ -33,6 +33,7 @@
                         <li><a class="dropdown-item" href="/user/product">등록한 상품</a></li>
                         <li><a class="dropdown-item" href="/item/new">상품 등록하기</a></li>
                         <li><a class="dropdown-item" href="/loginInfo">장바구니</a></li>
+                        <li><form th:action="@{/logout}" method="post"><button class="dropdown-item" type="submit">로그아웃</button></form></li>
                     </ul>
                 </li>
             </ul>
@@ -52,8 +53,8 @@
 <header class="bg-dark py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Shop in style</h1>
-            <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+            <h1 class="display-4 fw-bolder">좋은 책과 음악을 가지는 시간</h1>
+            <p class="lead fw-normal text-white-50 mb-0">With aladin</p>
         </div>
     </div>
 </header>
@@ -86,22 +87,23 @@
 
 
             <!-- card view -->
-            <div class="col mb-5" th:each="item : ${items}">
-                <div class="card h-100">
+            <div th:each="item : ${items}">
+
+                <div class="card h-fake">
                     <!-- Product image-->
                     <img class="card-img-top" th:src="|/images/${item.imgName}|" >
                     <!-- Product details-->
-                    <div class="card-body p-4">
+                    <div class="card-body p-1">
                         <div class="text-center">
                             <!-- Product name-->
                             <h5 class="fw-bolder"><a th:text="${item.itemName}"></a></h5>
                             <!-- Product price-->
-                            <a th:text="${item.price}">가격</a>
+                            <a th:text="${item.price}"></a><a>원</a>
                         </div>
                     </div>
                     <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" th:href="@{/products/{id}(id=${item.id})}">View options</a></div>
+                    <div class="card-fake">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" th:href="@{/products/{id}(id=${item.id})}">구매하기</a></div>
                     </div>
                 </div>
             </div>
